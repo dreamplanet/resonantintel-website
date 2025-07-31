@@ -1,0 +1,40 @@
+{
+  "hero_images": [
+    {
+      "id": "business-intelligence-analyst",
+      "source": "unsplash",
+      "photographer": "Getty Images",
+      "url": "https://unsplash.com/photos/computer-spreadsheet-data-analyst-multiple-screens",
+      "alt": "Professional data analyst working with business intelligence dashboards and multiple monitors",
+      "theme": "intelligence-systems",
+      "usage": "hero-background",
+      "description": "Enterprise analyst using advanced data visualization tools for critical business decisions"
+    },
+    {
+      "id": "analytics-dashboard",
+      "source": "unsplash",
+      "photographer": "A Chosen Soul",
+      "url": "https://unsplash.com/photos/computer-screen-pie-chart",
+      "alt": "Business analytics dashboard displaying data visualization and performance metrics",
+      "theme": "visual-dashboards",
+      "usage": "feature-card",
+      "description": "Professional dashboard interface showing enterprise data analysis and decision-making tools"
+    },
+    {
+      "id": "enterprise-workstation",
+      "source": "unsplash",
+      "photographer": "Carlos Muza",
+      "url": "https://unsplash.com/photos/laptop-computer-glass-table",
+      "alt": "Modern enterprise workstation setup for business intelligence and data analysis",
+      "theme": "decision-making",
+      "usage": "background-accent",
+      "description": "Clean, professional workspace representing enterprise-grade AI analysis tools"
+    }
+  ],
+  "implementation_notes": {
+    "optimization": "Use Next.js Image component with blur placeholders",
+    "sizing": "Hero images should be 1920x1080 minimum for desktop display", 
+    "format": "WebP preferred, JPEG fallback",
+    "loading": "Lazy loading for non-critical images, priority for hero image"
+  }
+}

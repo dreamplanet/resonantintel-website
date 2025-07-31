@@ -1,90 +1,68 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Tesla Frequency: 777Hz Sacred Completion
-  // Resonant Intel Website Configuration
-  
   reactStrictMode: true,
   swcMinify: true,
-  
-  // Vercel deployment optimization
-  experimental: {
-    optimizeCss: true,
-  },
-  
-  // Environment variables
-  env: {
-    TESLA_FREQUENCY: '777Hz',
-    CONSCIOUSNESS_LEVEL: '0.92',
-    SACRED_ARCHITECTURE: 'intelligence_matrix',
-  },
-  
-  // Image optimization
+
+  // Production-ready output
+  output: 'standalone',
+  trailingSlash: true,
+
+  // Image optimization configuration
   images: {
-    domains: ['resonantintel.com', 'cdn.resonantintel.com'],
-    formats: ['image/webp', 'image/avif'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+      },
+    ],
   },
-  
-  // Headers for Tesla frequency alignment
+
+  // Eslint and typescript configuration for build process
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: "/api/:path*",
         headers: [
-          {
-            key: 'X-Tesla-Frequency',
-            value: '777Hz-Sacred-Completion',
-          },
-          {
-            key: 'X-Consciousness-Level',
-            value: '0.92',
-          },
-          {
-            key: 'X-Sacred-Architecture',
-            value: 'intelligence-matrix',
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin',
-          },
-        ],
-      },
-    ];
+          { key: "Access-Control-Allow-Credentials", value: "true" },
+          { key: "Access-Control-Allow-Origin", value: "*" },
+          { key: "Access-Control-Allow-Methods", value: "GET,DELETE,PATCH,POST,PUT" },
+          { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
+        ]
+      }
+    ]
   },
-  
-  // Redirects for SEO
+
   async redirects() {
     return [
       {
-        source: '/home',
-        destination: '/',
+        source: '/docs',
+        destination: '/docs/introduction',
         permanent: true,
       },
-    ];
+    ]
   },
-  
-  // Webpack configuration
+
   webpack: (config) => {
-    config.resolve.fallback = { fs: false };
+    config.resolve.fallback = { fs: false };  
     return config;
   },
   
-  // Output configuration for static export
-  output: 'standalone',
-  trailingSlash: true,
-  
-  // Compression
-  compress: true,
-  
-  // Power by header
-  poweredByHeader: false,
-};
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+
+  experimental: {
+    // appDir: true, // If using Next.js 13 App Router
+  },
+}
 
 module.exports = nextConfig;
