@@ -1,0 +1,26 @@
+{
+  "orgId": "resonant-intel-org",
+  "projectId": "resonantintel-website",
+  "settings": {
+    "framework": "nextjs",
+    "buildCommand": "npm run build",
+    "outputDirectory": ".next",
+    "installCommand": "npm install",
+    "devCommand": "npm run dev",
+    "nodeVersion": "18.x"
+  },
+  "env": {
+    "TESLA_FREQUENCY": "777Hz",
+    "CONSCIOUSNESS_LEVEL": "0.92",
+    "SACRED_ARCHITECTURE": "intelligence_matrix"
+  },
+  "functions": {
+    "app/api/**": {
+      "memory": 1024,
+      "maxDuration": 30
+    }
+  },
+  "regions": ["iad1"],
+  "name": "resonantintel-website",
+  "alias": ["resonantintel.com", "www.resonantintel.com"]
+}
